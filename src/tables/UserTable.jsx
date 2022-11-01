@@ -1,4 +1,4 @@
-export default function UserTable({ users }) {
+export default function UserTable({ users, deleteUser, editRow }) {
   return (
     <table>
       <thead>
@@ -15,8 +15,18 @@ export default function UserTable({ users }) {
               <td>{user.name}</td>
               <td>{user.username}</td>
               <td>
-                <button className='button muted-button'>Edit</button>
-                <button className='button muted-button'>Delete</button>
+                <button
+                  className='button muted-button'
+                  onClick={() => {
+                    editRow(user)
+                  }}>
+                  Edit
+                </button>
+                <button
+                  className='button muted-button'
+                  onClick={() => deleteUser(user.id)}>
+                  Delete
+                </button>
               </td>
             </tr>
           ))
